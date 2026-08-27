@@ -1,0 +1,14 @@
+.contain-box {
+  width: 40vw;
+  background-color: #d7dcf8;
+  border-radius: 15px;
+  padding: 10px;
+}
+@media (max-width: 1023px) {
+  .contain-box {
+    width: 80vw;
+    background-color: #d7dcf8;
+    border-radius: 15px;
+    padding: 10px;
+  }
+}
