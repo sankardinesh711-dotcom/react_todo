@@ -95,38 +95,44 @@ function App() {
               </button>
             </div>
             <h5 className="pt-3 mb-4">Your Todo's</h5>
-            {items.map((item) => {
-              return (
-                <ul className="list-unstyled" key={item.id}>
-                  <li className="d-flex justify-content-between">
-                    <div className="d-flex gap-2">
-                      <input
-                        type="checkBox"
-                        checked={item.checked}
-                        onChange={() => {
-                          handleChecked(item.id);
-                        }}
-                      />
-                      <label className="fs-5 fw-normal">{item.label}</label>
-                    </div>
-                    <div className="d-flex justify-content-end gap-2">
-                      <button
-                        onClick={() => handleEdit(item.id)}
-                        className="btn btn-warning"
-                      >
-                        {isEdit ? "Save" : "Edit"}
-                      </button>
-                      <button
-                        onClick={() => handleDelete(item.id)}
-                        className="btn btn-danger"
-                      >
-                        Delete
-                      </button>
-                    </div>
-                  </li>
-                </ul>
-              );
-            })}
+            {items.length === 0 ? (
+              <>There is no Todo to display</>
+            ) : (
+              <>
+                {items.map((item) => {
+                  return (
+                    <ul className="list-unstyled" key={item.id}>
+                      <li className="d-flex justify-content-between">
+                        <div className="d-flex gap-2">
+                          <input
+                            type="checkBox"
+                            checked={item.checked}
+                            onChange={() => {
+                              handleChecked(item.id);
+                            }}
+                          />
+                          <label className="fs-5 fw-normal">{item.label}</label>
+                        </div>
+                        <div className="d-flex justify-content-end gap-2">
+                          <button
+                            onClick={() => handleEdit(item.id)}
+                            className="btn btn-warning"
+                          >
+                            {isEdit ? "Save" : "Edit"}
+                          </button>
+                          <button
+                            onClick={() => handleDelete(item.id)}
+                            className="btn btn-danger"
+                          >
+                            Delete
+                          </button>
+                        </div>
+                      </li>
+                    </ul>
+                  );
+                })}
+              </>
+            )}
           </div>
         </div>
       </main>
